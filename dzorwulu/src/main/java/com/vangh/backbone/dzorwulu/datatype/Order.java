@@ -61,7 +61,6 @@ public class Order {
         this.destination = destination;
         this.client = client;
         this.recipient = recipient;
-        this.orderdate = orderdate;
         this.comments = "";
         this.status = Utils.OrderStatus.PLACED;
         this.delivereddate = 0;

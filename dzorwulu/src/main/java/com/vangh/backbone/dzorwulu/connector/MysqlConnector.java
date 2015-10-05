@@ -92,7 +92,6 @@ public class MysqlConnector {
             if(status.equals(Utils.OrderStatus.DELIVERED)) {
                 updateOrderSetDeliveredStatement.setTimestamp(1, Timestamp.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date())));
                 updateOrderSetDeliveredStatement.setInt(2, orderID);
-                ;
             }else {
                     updateOrderStatusStatement.setString(1, status.toString());
                     updateOrderStatusStatement.setInt(2, orderID);
