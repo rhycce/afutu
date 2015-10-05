@@ -8,6 +8,6 @@ package com.vangh.backbone.dzorwulu.utils;
  * Created by janet on 10/5/15.
  */
 public class Utils {
-    public static enum OrderStatus{PLACED, PICKEDUP, ENROUTE, INCOMPLETE, DELIVERED, FAILEDDELIVERY};
+    public enum OrderStatus{PLACED, PICKEDUP, ENROUTE, INCOMPLETE, DELIVERED, FAILEDDELIVERY};
 
 }
