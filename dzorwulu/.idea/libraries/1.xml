@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="1">
+    <CLASSES>
+      <root url="file://$MAVEN_REPOSITORY$/com/seleritycorp/cs/standalone/Commons/1.3-SNAPSHOT" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$MAVEN_REPOSITORY$/com/seleritycorp/cs/standalone/Commons/1.3-SNAPSHOT" recursive="false" />
+  </library>
+</component>
