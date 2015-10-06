@@ -1,7 +1,6 @@
 package com.vangh.backbone.dzorwulu.connector;
 
 import com.google.gson.Gson;
-import com.vangh.backbone.dzorwulu.utils.ElasticsearchDocument;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthRequest;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthResponse;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
@@ -126,8 +125,8 @@ public class ElasticSearchConnector {
             return true;
     }
 
-    public boolean addNewDoc(ElasticsearchDocument document){
-        IndexResponse response = client.prepareIndex(indexName, doctype, document.getDocuemntID())
+    public boolean addNewDoc(Object document){
+        IndexResponse response = client.prepareIndex(indexName, doctype)
                 .setSource(new Gson().toJson(document))
                 .execute()
                 .actionGet();

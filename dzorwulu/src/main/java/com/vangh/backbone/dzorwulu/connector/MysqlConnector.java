@@ -1,6 +1,7 @@
 
 package com.vangh.backbone.dzorwulu.connector;
 
+import com.vangh.backbone.dzorwulu.datatype.Client;
 import com.vangh.backbone.dzorwulu.datatype.Order;
 import com.vangh.backbone.dzorwulu.datatype.Package;
 import com.vangh.backbone.dzorwulu.utils.Utils;
@@ -28,6 +29,7 @@ public class MysqlConnector {
     private PreparedStatement selectOrderByIdStatement;
     private PreparedStatement selectPackageByIdStatement;
     private PreparedStatement selectPackageByOrderStatement;
+    private PreparedStatement selectClientByIdStatement;
 
     public MysqlConnector(Properties props) {
         this.properties = props;
@@ -56,6 +58,7 @@ public class MysqlConnector {
             selectOrderByIdStatement = conn.prepareStatement("Select * from orders where id = ?");
             selectPackageByIdStatement = conn.prepareStatement("Select * from package where id = ?");
             selectPackageByOrderStatement = conn.prepareStatement("Select * from package where ordernumber = ?");
+            selectClientByIdStatement = conn.prepareStatement("Select * from contacts where id = ?");
             return true;
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -185,6 +188,20 @@ public class MysqlConnector {
                 if(resultset.getString("status").equals(Utils.OrderStatus.DELIVERED))
                     order.setDelivereddate(resultset.getTimestamp("delievereddate"));
                 return order;
+            }
+        } catch (SQLException e) {
+            LOGGER.severe(e.getMessage());
+        }
+        return null;
+    }
+
+    public Client selectClientById(int clientID){
+        try {
+            selectClientByIdStatement.setInt(1, clientID);
+            ResultSet resultSet = selectClientByIdStatement.executeQuery();
+            if(resultSet.next()){
+                Client client = new Client(resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("phone"), resultSet.getString("comments"), resultSet.getString("email")) ;
+                return client;
             }
         } catch (SQLException e) {
             LOGGER.severe(e.getMessage());

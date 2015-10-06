@@ -1,23 +1,55 @@
 package com.vangh.backbone.dzorwulu.datatype;
 
-import com.google.gson.annotations.SerializedName;
-import com.vangh.backbone.dzorwulu.utils.ElasticsearchDocument;
-
 import java.sql.Timestamp;
 
 /**
  * Created by Janet on 10/5/2015.
  */
-public class StatusLog implements ElasticsearchDocument{
-    @SerializedName("id")private String documentId;
+public class StatusLog{
     private String comment;
     private Timestamp timestamp;
     private int facilityId;
     private int loggedBy;
-    private int packageiD;
+    private int packageId;
 
-    public String getDocuemntID() {
-        return this.documentId;
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public int getFacilityId() {
+        return facilityId;
+    }
+
+    public void setFacilityId(int facilityId) {
+        this.facilityId = facilityId;
+    }
+
+    public int getLoggedBy() {
+        return loggedBy;
+    }
+
+    public void setLoggedBy(int loggedBy) {
+        this.loggedBy = loggedBy;
+    }
+
+    public StatusLog(String comment, Timestamp timestamp, int facilityId, int loggedBy, int packageId) {
+        this.comment = comment;
+        this.timestamp = timestamp;
+        this.facilityId = facilityId;
+        this.loggedBy = loggedBy;
+        this.packageId = packageId;
     }
 
 
