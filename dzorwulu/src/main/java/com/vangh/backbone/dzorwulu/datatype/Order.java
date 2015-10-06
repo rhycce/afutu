@@ -18,42 +18,21 @@ public class Order {
     private String comments;
     private Utils.OrderStatus status;
     private Timestamp orderdate;
+    private int assignedto;
+    private Timestamp delivereddate;
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", source='" + source + '\'' +
-                ", destination='" + destination + '\'' +
-                ", client=" + client +
-                ", recipient=" + recipient +
-                ", comments='" + comments + '\'' +
-                ", status=" + status +
-                ", orderdate=" + orderdate +
-                ", delivereddate=" + delivereddate +
-                ", assignedto=" + assignedto +
-                '}';
-    }
-
-    private long delivereddate;
-
-    public void setAssignedto(int assignedto) {
+    public Order(int id, String source, String destination, int client, int recipient, String comments, Utils.OrderStatus status, Timestamp orderdate, int assignedto) {
+        this.id = id;
+        this.source = source;
+        this.destination = destination;
+        this.client = client;
+        this.recipient = recipient;
+        this.comments = comments;
+        this.status = status;
+        this.delivereddate = null;
+        this.orderdate =  orderdate;
         this.assignedto = assignedto;
     }
-
-    public void setDelivereddate(long delivereddate) {
-        this.delivereddate = delivereddate;
-    }
-
-    public void setStatus(Utils.OrderStatus status) {
-        this.status = status;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    private int assignedto;
 
     public Order(String source, String destination, int client, int recipient) {
         this.id = 0;
@@ -63,9 +42,25 @@ public class Order {
         this.recipient = recipient;
         this.comments = "";
         this.status = Utils.OrderStatus.PLACED;
-        this.delivereddate = 0;
+        this.delivereddate = null;
         this.orderdate =  Timestamp.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         this.assignedto = 0;
+    }
+
+    public void setAssignedto(int assignedto) {
+        this.assignedto = assignedto;
+    }
+
+    public void setDelivereddate(Timestamp delivereddate) {
+        this.delivereddate = delivereddate;
+    }
+
+    public void setStatus(Utils.OrderStatus status) {
+        this.status = status;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     public int getId() {
@@ -100,7 +95,7 @@ public class Order {
         return orderdate;
     }
 
-    public long getDelivereddate() {
+    public Timestamp getDelivereddate() {
         return delivereddate;
     }
 
@@ -108,10 +103,20 @@ public class Order {
         return assignedto;
     }
 
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", source='" + source + '\'' +
+                ", destination='" + destination + '\'' +
+                ", client=" + client +
+                ", recipient=" + recipient +
+                ", comments='" + comments + '\'' +
+                ", status=" + status +
+                ", orderdate=" + orderdate +
+                ", delivereddate=" + delivereddate +
+                ", assignedto=" + assignedto +
+                '}';
+    }
 
 }

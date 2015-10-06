@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ (c) Copyright Selerity, Inc. 2009-2015. All rights reserved. This source code is confidential and proprietary information of Selerity Inc. and may be used only by a recipient designated by and for the purposes permitted by Selerity Inc. in writing.  Reproduction of, dissemination of, modifications to or creation of derivative works from this source code, whether in source or binary forms, by any means and in any form or manner, is expressly prohibited, except with the prior written permission of Selerity Inc..  THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE. This notice may not be removed from the software by any user thereof.
-  -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -15,14 +12,26 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.2.4</version>
+            <version>2.4</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.35</version>
+            <version>5.1.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>2.0.0-beta2</version>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>gson-repo</id>
+            <url>http://central.maven.org/maven2</url>
+        </repository>
+    </repositories>
 
 
 </project>
